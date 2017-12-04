@@ -1,0 +1,5 @@
+Wersja wymaga zainstalowania systemu szablonow PHPTAL.
+
+W przypadku uzywania bazy MySQL:
+Zaloz baze danych, utworz tabele wg zrzutu w pliku models/data/ttsi_db.sql, 
+zmien w konstruktorze klasy ModelDanych parametry dostepu do bazy.

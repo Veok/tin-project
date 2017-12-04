@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<title>Przyklad - wzorzec MVC + panel administracyjny</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body onload="document.forms[0][0].focus();"> <!-- JavaScript - ustawienie kursora w pierwszym polu pierwszego formularza -->
+
+<div id="strona">
+
+    <div id="naglowek">
+	<h2> <a href="index.php?page=glowna">Nagłówek</a> </h2>
+    </div>
+
+    <div id="kolumnaLewa">
+
+        <div id="menuPionowe">
+		<ul class="ukladPionowy">
+			<li>  <a href="index.php?page=login" tal:attributes="class menu/admin">Zaloguj sie</a></li>
+			<li><a href="index.php?page=register">Zarejestruj sie</a></li>
+		</ul>
+        </div>
+
+    </div>
+
+    <div id="kolumnaPrawa">
+	
+		<div id="tresc">
+
+			<h3>Logowanie</h3>
+			<form name="loginform" method="post" action="index.php?page=login" enctype="multipart/form-data">
+				Nick: <input name="nick"/>
+				Hasło: <input type="password" name="password" />
+				<input type="submit" value="Zaloguj" />
+			</form>
+
+			<span class="info" tal:condition="exists: info" tal:content="info"></span>
+
+		</div>    
+
+	</div>
+
+    <div id="stopka">
+    </div>
+
+</div> 
+
+</body>
+</html>

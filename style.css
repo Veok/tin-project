@@ -1,0 +1,169 @@
+#strona {
+    margin     : auto;
+    border     : 1px solid black;
+    padding    : 0px;
+    width      : 758px;
+}
+
+#naglowek {
+    margin     : 0px;
+    border     : 0px;
+    padding    : 1px;
+    width      : 756px;
+    background-color : red;
+    text-align : center;
+}
+
+#stopka {
+    margin     : 0px;
+    border     : 0px;
+    padding    : 0px 2px 0px 2px;
+    width      : 754px;
+    background-color : green;
+    clear      : both;
+    text-align : right;
+}
+
+#kolumnaLewa {
+    margin     : 0px;
+    border     : 0px;
+    padding    : 0px;
+    width      : 180px;
+    background-color : blue;
+    float      : left;
+}
+
+#kolumnaPrawa {
+    margin      : 0px;
+    padding     : 0px;
+    width       : 577px;
+    background-color : white;
+    float       : right;
+}
+
+#obrazLogo {
+    margin     : 0px;
+    border     : 0px;
+    padding    : 0px;
+    width      : 180px;
+    background-color : yellow;
+}
+
+#menuPionowe {
+    margin     : 0px;
+    border     : 0px;
+    padding    : 0px;
+    width      : 180px;
+    background-color : yellow;
+}
+
+#menuPoziome {
+    margin      : 0px;
+    border-left : 0px;
+    padding     : 0px;
+    width       : 577px;
+    background-color : gray;
+}
+
+#tresc {
+    margin      : 0px;
+    border      : 0px;
+    border-left : 0px;
+    border-style: solid; 
+    padding     : 50px 10px 10px 10px;
+    width       : 556px;
+    background-color : white;
+    font-family : Serif;
+}
+
+
+ul.ukladPionowy, ul.ukladPionowy li {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+ul.ukladPionowy {
+	width: 180px;
+}
+
+ul.ukladPionowy a:link, ul.ukladPionowy a:visited {
+	display: block;
+	width: 166px;
+	text-decoration: none;
+	background-color: #ccc;
+	color: #000;
+	padding: 5px;
+	border: 2px outset #fff;
+}
+
+ul.ukladPionowy a:hover {
+	border-style: inset;
+	padding: 7px 3px 3px 7px;
+}
+
+
+ul.ukladPoziomy, ul.ukladPoziomy li {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+ul.ukladPoziomy {
+	position: absolute;
+}
+
+ul.ukladPoziomy li {
+	float: left;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	border-color: transparent #25b #25b #9ce;
+}
+
+ul.ukladPoziomy a:link, ul.ukladPoziomy a:visited {
+	text-decoration: none;
+	display: block;
+	width: 142px;
+	text-align: center;
+	padding: 5px 0;
+	font-weight: bold;
+	background-color: #27c;
+	color: #def;
+	border-top: 10px solid #25b;
+}
+
+ul.ukladPoziomy a:hover {
+	background-color: #28e;
+	color: #fff;
+	border-top: 20px solid #26d;
+}
+
+a:link {
+	color: #CC9999;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #CC9999;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #CC3300;
+	text-decoration: none;
+}
+
+.info{
+	color: #DD0000;
+}
+
+a.wybrane:before{
+    content: "> ";
+}
+a.wybrane:after{
+    content: " <";
+}
