@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+<html xmlns:tal="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Przyklad - wzorzec MVC + panel administracyjny</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body onload="document.forms[0][0].focus();"> <!-- JavaScript - ustawienie kursora w pierwszym polu pierwszego formularza -->
+
+<div id="strona">
+
+    <div id="naglowek">
+        <h2> <a href="index.php?page=glowna" tal:attributes="class menu/glowna">Nagłówek</a> </h2>
+    </div>
+
+    <div id="kolumnaLewa">
+        <div id="menuPionowe">
+            <ul class="ukladPionowy">
+                <li><a href="index.php?page=podstrona3" tal:attributes="class menu/podstrona3">Podstrona 3</a></li>
+                <li><a href="index.php?page=podstrona4" tal:attributes="class menu/podstrona4">Podstrona 4</a></li>
+                <li><a href="controllers/logout.php" tal:attributes="class menu/podstrona5">Wyloguj się</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div id="kolumnaPrawa">
+
+        <div id="tresc" tal:condition="exists: tresc" tal:content="tresc">
+            <form action="../php-panel_administracyjny-phptal   /controllers/add_picture.php" method="post" enctype="multipart/form-data">
+                <table width="100%">
+                    <tr>
+                        <td>Wybierz zdjęcia</td>
+                        <td><input type="file" name="files[]" multiple="true"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">Wspierane rozszerzenia: .jpeg, .jpg, .png, .gif</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><input type="submit" value="Dodaj zdjecia" id="selectedButton"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+    </div>
+
+    <div id="stopka">
+    </div>
+
+</div>
+
+</body>
+</html>
