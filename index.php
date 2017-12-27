@@ -1,17 +1,7 @@
 <?php
-// Strona glowna (Kontroler)
-// Pobiera podstrone do wyswietlenia oraz doczytuje odpowiednie dane z modelu i wyswietla odpowiedni widok
-
-// pobranie parametru z paska adresu
 $page = isset($_GET['page']) ? $_GET['page'] : 'glowna';
 
-// tworzymy obiekty Modelu najpierw doczytujac klasy
-//include('models/ModelDanychMySQL.php');		// Dane w bazie MySQL
-// Dane w pliku tekstowym
-//include('models/ModelDanychSQLite.php');	// Dane w bazie SQLite (dane przechowywane w pliku)
-
-
-include('include/PHPTAL.php'); // doczytanie klasy szablon�w (Widok)
+include('include/PHPTAL.php');
 
 // sterowanie przeplywem danych
 switch ($page) {
@@ -32,7 +22,10 @@ switch ($page) {
         $template = new PHPTAL("views/add_picture.html");
         break;
     case 'picture_list':
-        $template = new PHPTAL("controllers/pictures.php");
+        //include 'controllers/pictures.php';
+     //   $template = new PHPTAL("views/picture_list.php");
+        header('Location: views/picture_list.php');
+        //  $template-> images = new pictures_list();
         break;
     default:
 
@@ -40,13 +33,6 @@ switch ($page) {
 
 }
 
-
-// Oznaczenie wybranej pozycji menu klas�.
-// 
-// Tworzymy tablic� asocjacyjn�, kt�ra pod kluczem $page b�dzie zawiera�a
-// warto�� sta�ej KLASA_MENU_WYBRANE, a pod innymi kluczami - ci�g pusty.
-// Dzi�ki temu wybrany element (np. <li>) otrzyma klas� KLASA_MENU_WYBRANE 
-// i mo�na go b�dzie odpowiednio ostylowa�.
 define("KLASA_MENU_WYBRANE", "wybrane");
 $menu = array();
 $menu["glowna"] = null;
