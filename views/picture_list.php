@@ -2,31 +2,27 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns:tal="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Przyklad - wzorzec MVC + panel administracyjny</title>
+    <title>Dodawarka zdjęć</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="../style.css" type="text/css"/>
 </head>
-
-
 <div id="strona">
 
     <div id="naglowek">
-        <h2><a href="index.php?page=glowna" tal:attributes="class menu/glowna">Nagłówek</a></h2>
+        <h2><a href="index.php?page=glowna">Nagłówek</a></h2>
     </div>
 
     <div id="kolumnaLewa">
         <div id="menuPionowe">
             <ul class="ukladPionowy">
-                <li><a href="index.php?page=podstrona3" tal:attributes="class menu/podstrona3">Podstrona 3</a></li>
-                <li><a href="index.php?page=podstrona4" tal:attributes="class menu/podstrona4">Podstrona 4</a></li>
-                <li><a href="controllers/logout.php" tal:attributes="class menu/podstrona5">Wyloguj się</a></li>
+                <li><a href="../controllers/logout.php"">Wyloguj się</a></li>
             </ul>
         </div>
 
     </div>
 
     <div id="kolumnaPrawa">
-        <div id="tresc" tal:condition="exists: tresc" tal:content="tresc">
+        <div id="tresc" tal:condition="exists: tresc" tal:content="tresc" class="modal">
             <?php
             /**
              * Created by IntelliJ IDEA.
@@ -46,21 +42,21 @@
                 $sqlString = "SELECT * FROM picture where User_Id = '$userId'";
                 $result = mysqli_query($connectionString, $sqlString);
                 $row = mysqli_fetch_array($result);
-                $ids = [];
-                $i = 0;
                 while ($row = mysqli_fetch_array($result)) {
                     $imgData = ($row['Image_Data']);
                     $id = $row['Id'];
-                    array_push($ids,$id);
                     $img = '<img src="data:image/jpeg;base64,' . base64_encode($imgData) . '" style="width:256px;height:144px;display:block"/>';
                     echo '<tr>';
                     echo '<td>';
+                    echo '<div class="column">';
                     echo $img . " ";
-                    echo '<form method="post" action="../controllers/deletePicture.php">';
-                    echo '<input type="hidden" name="id" value="'.$id.'"/>';
-                    echo '<button type="submit" class="button" name="delete"  />Usuń</button>';
+                    echo '<form id="deleteform" method="post" onsubmit="if(!confirm(\'Jesteś pewien że chcesz usunąć ten obraz?\')){return false;}" action="../controllers/deletePicture.php">';
+                    echo '<input type="hidden" name="id" value="' . $id . '"/>';
+                    echo '<div class="desc">';
+                    echo '<button type="submit" class="button" name="delete" />Usuń</button>';
+                    echo '</div>';
                     echo '</form>';
-                    $i++;
+                    echo '</div>';
                 }
             }
             ?>
