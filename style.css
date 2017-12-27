@@ -2,14 +2,14 @@
     margin     : auto;
     border     : 1px solid black;
     padding    : 0px;
-    width      : 758px;
+    width      : 100%;
 }
 
 #naglowek {
     margin     : 0px;
     border     : 0px;
     padding    : 1px;
-    width      : 756px;
+    width      : 100%;
     background-color : red;
     text-align : center;
 }
@@ -36,7 +36,7 @@
 #kolumnaPrawa {
     margin      : 0px;
     padding     : 0px;
-    width       : 577px;
+    width       : 100%;
     background-color : white;
     float       : right;
 }
@@ -71,7 +71,7 @@
     border-left : 0px;
     border-style: solid;
     padding     : 50px 10px 10px 10px;
-    width       : 556px;
+    width       : 100%;
     background-color : white;
     font-family : Serif;
 }
@@ -123,7 +123,11 @@ ul.ukladPoziomy li {
 	border-style: solid;
 	border-color: transparent #25b #25b #9ce;
 }
-
+form, table {
+    display:inline;
+    margin:0px;
+    padding:0px;
+}
 ul.ukladPoziomy a:link, ul.ukladPoziomy a:visited {
 	text-decoration: none;
 	display: block;
@@ -141,6 +145,7 @@ ul.ukladPoziomy a:hover {
 	color: #fff;
 	border-top: 20px solid #26d;
 }
+
 
 a:link {
 	color: #CC9999;

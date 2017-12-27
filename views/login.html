@@ -13,31 +13,22 @@
     <div id="naglowek">
 	<h2> <a href="index.php?page=glowna">Nagłówek</a> </h2>
     </div>
-
     <div id="kolumnaLewa">
-
-        <div id="menuPionowe">
-		<ul class="ukladPionowy">
+		<div id="menuPoziome">
+			<ul class="ukladPoziomy">
 			<li>  <a href="index.php?page=login">Zaloguj sie</a></li>
 			<li><a href="index.php?page=register">Zarejestruj sie</a></li>
 		</ul>
         </div>
-
     </div>
-
     <div id="kolumnaPrawa">
-	
 		<div id="tresc">
-
 			<h3>Logowanie</h3>
 			<form name="loginform" method="post" action="index.php?page=login" enctype="multipart/form-data">
 				Nick: <input name="nick"/>
 				Hasło: <input type="password" name="password" />
 				<input type="submit" value="Zaloguj" />
 			</form>
-
-			<span class="info" tal:condition="exists: info" tal:content="info"></span>
-
 		</div>    
 
 	</div>

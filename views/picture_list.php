@@ -5,6 +5,7 @@
     <title>Dodawarka zdjęć</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="../style.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <div id="strona">
 
@@ -13,16 +14,15 @@
     </div>
 
     <div id="kolumnaLewa">
-        <div id="menuPionowe">
-            <ul class="ukladPionowy">
+        <div id="menuPoziome">
+            <ul class="ukladPoziomy"
                 <li><a href="../controllers/logout.php"">Wyloguj się</a></li>
             </ul>
         </div>
 
     </div>
 
-    <div id="kolumnaPrawa">
-        <div id="tresc" tal:condition="exists: tresc" tal:content="tresc" class="modal">
+        <div id="tresc" tal:condition="exists: tresc" tal:content="tresc" >
             <?php
             /**
              * Created by IntelliJ IDEA.
@@ -42,30 +42,34 @@
                 $sqlString = "SELECT * FROM picture where User_Id = '$userId'";
                 $result = mysqli_query($connectionString, $sqlString);
                 $row = mysqli_fetch_array($result);
+                $i = 0;
                 while ($row = mysqli_fetch_array($result)) {
                     $imgData = ($row['Image_Data']);
                     $id = $row['Id'];
-                    $img = '<img src="data:image/jpeg;base64,' . base64_encode($imgData) . '" style="width:256px;height:144px;display:block"/>';
-                    echo '<tr>';
-                    echo '<td>';
-                    echo '<div class="column">';
-                    echo $img . " ";
-                    echo '<form id="deleteform" method="post" onsubmit="if(!confirm(\'Jesteś pewien że chcesz usunąć ten obraz?\')){return false;}" action="../controllers/deletePicture.php">';
+                    $img = '<img src="data:image/jpeg;base64,' . base64_encode($imgData) . '" style="width:256px;height:144px;"/>';
+
+                    echo '<form id="deleteform" method="post" onsubmit="if(!confirm(\'Jesteś pewien że chcesz usunąć ten obraz?\')){return false;}" action="../controllers/deletePicture.php" >';
+                    echo '<table><td>';
+                    echo $img;
+                    echo '</td><td>';
                     echo '<input type="hidden" name="id" value="' . $id . '"/>';
-                    echo '<div class="desc">';
-                    echo '<button type="submit" class="button" name="delete" />Usuń</button>';
-                    echo '</div>';
+                    echo '<button class ="fa fa-close"type="submit" class="button" name="delete" style="display: inline-block; height: 146px; border-color: black; background-color: #f44336;"  /></button>';
+                    echo '</td></table>';
                     echo '</form>';
-                    echo '</div>';
+
+                    $i++;
+                    if($i==4){
+                        echo '</br>';
+                        $i=0;
+                    }
                 }
             }
             ?>
         </div>
-    </div>
 
     <div id="stopka">
-    </div>
 
 </div>
 
 </html>
+</div>
