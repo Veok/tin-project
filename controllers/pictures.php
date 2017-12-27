@@ -15,16 +15,17 @@ if ($connectionString->connect_errno != 0) {
     throw new Exception(mysqli_connect_errno());
 } else {
     $sqlString = "SELECT * FROM picture where User_Id = '$userId'";
- //   $images =  $connectionString->query($sqlString);
+    //   $images =  $connectionString->query($sqlString);
     $result = mysqli_query($connectionString, $sqlString);
 //    $result=mysqli_fetch_array($images);
 //    foreach ($images as $img) echo '<img src="data:image/jpeg;base64,'.base64_encode( $img['Data'] ).'"/>';
 //    echo '<img src="data:image/jpeg;charset=utf-8;base64    ,'.base64_encode( $result['Data'] ).'"/>';
-    while($row =mysqli_fetch_array($result)){
-
+    while ($row = mysqli_fetch_array($result)) {
+        $imgData = ($row['Image_Data']);
+        $img = '<img src="data:image/jpeg;base64,' . base64_encode( $imgData ) . '" />';
         echo '<tr>';
         echo '<td>';
-        echo '<img src="data:image/jpeg;base64,'.base64_encode($row['Data'] ).'" height="100" width="100" class="img-thumnail" />';
+        echo $img;
         echo '</td>';
         echo '</tr>';
     }
