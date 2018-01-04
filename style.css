@@ -1,174 +1,121 @@
-#strona {
-    margin     : auto;
-    border     : 1px solid black;
-    padding    : 0px;
-    width      : 100%;
+#container {
+    margin: auto;
+    padding: 0px;
+    width: 100%;
+    background-color: whitesmoke;
+    height: 100%;
 }
 
 #naglowek {
-    margin     : 0px;
-    border     : 0px;
-    padding    : 1px;
-    width      : 100%;
-    background-color : red;
-    text-align : center;
+    margin: 0px;
+    border: 2px;
+    padding: 1px;
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+    text-align: center;
+    height: 250px;
+    overflow: hidden;
+    background: url(logo.jpeg);
+    background-size: 100%;
+    font-family: Verdana serif;
 }
 
 #stopka {
-    margin     : 0px;
-    border     : 0px;
-    padding    : 0px 2px 0px 2px;
-    width      : 754px;
-    background-color : green;
-    clear      : both;
-    text-align : right;
-}
-
-#kolumnaLewa {
-    margin     : 0px;
-    border     : 0px;
-    padding    : 0px;
-    width      : 180px;
-    background-color : blue;
-    float      : left;
-}
-
-#kolumnaPrawa {
-    margin      : 0px;
-    padding     : 0px;
-    width       : 100%;
-    background-color : white;
-    float       : right;
-}
-
-#obrazLogo {
-    margin     : 0px;
-    border     : 0px;
-    padding    : 0px;
-    width      : 180px;
-    background-color : yellow;
-}
-
-#menuPionowe {
-    margin     : 0px;
-    border     : 0px;
-    padding    : 0px;
-    width      : 180px;
-    background-color : yellow;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    font-size: 12px;
+    color: white;
+    background-color: #333;
+    text-align: center;
+    margin-top: 3%;
 }
 
 #menuPoziome {
-    margin      : 0px;
-    border-left : 0px;
-    padding     : 0px;
-    width       : 577px;
-    background-color : gray;
+    width: 100%;
+    font-family: Verdana, serif;
+    margin-bottom: 2%;
+
 }
 
 #tresc {
-    margin      : 0px;
-    border      : 0px;
-    border-left : 0px;
-    border-style: solid;
-    padding     : 50px 10px 10px 10px;
-    width       : 100%;
-    background-color : white;
-    font-family : Serif;
+
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+    font-family: Verdana, serif;
+    text-align: center;
 }
-
-
-ul.ukladPionowy, ul.ukladPionowy li {
-	display: block;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-
-ul.ukladPionowy {
-	width: 180px;
-}
-
-ul.ukladPionowy a:link, ul.ukladPionowy a:visited {
-	display: block;
-	width: 166px;
-	text-decoration: none;
-	background-color: #ccc;
-	color: #000;
-	padding: 5px;
-	border: 2px outset #fff;
-}
-
-ul.ukladPionowy a:hover {
-	border-style: inset;
-	padding: 7px 3px 3px 7px;
-}
-
-
-ul.ukladPoziomy, ul.ukladPoziomy li {
-	display: block;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
 
 ul.ukladPoziomy {
-	position: absolute;
+
+    list-style-type: none;
+    font-family: Verdana, serif;
+    overflow: hidden;
+    background-color: #333;
+    margin-bottom: 2px;
+    margin-top: 0;
+
+
 }
 
 ul.ukladPoziomy li {
-	float: left;
-	border-width: 0 1px 1px 1px;
-	border-style: solid;
-	border-color: transparent #25b #25b #9ce;
+    display: block;
+    color: white;
+    float: left;
+    font-family: Verdana, serif;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 16px;
+    text-decoration: none;
 }
+
+ul.ukladPoziomy li a {
+    display: block;
+    color: white;
+    text-align: center;
+    font-family: Verdana, serif;
+    padding: 11px 15px;
+    font-size:15px;
+    text-decoration: none;
+}
+
+ul.ukladPoziomy li a:hover {
+    background-color: #111;
+
+}
+
 form, table {
-    display:inline;
-    margin:0px;
-    padding:0px;
-}
-ul.ukladPoziomy a:link, ul.ukladPoziomy a:visited {
-	text-decoration: none;
-	display: block;
-	width: 142px;
-	text-align: center;
-	padding: 5px 0;
-	font-weight: bold;
-	background-color: #27c;
-	color: #def;
-	border-top: 10px solid #25b;
-}
+    display: inline;
 
-ul.ukladPoziomy a:hover {
-	background-color: #28e;
-	color: #fff;
-	border-top: 20px solid #26d;
 }
-
 
 a:link {
-	color: #CC9999;
-	text-decoration: none;
+    color: #CC9999;
+    text-decoration: none;
 }
 
 a:visited {
-	color: #CC9999;
-	text-decoration: none;
+    color: #CC9999;
+    text-decoration: none;
 }
 
 a:hover {
-	color: #CC3300;
-	text-decoration: none;
+    color: #CC3300;
+    text-decoration: none;
 }
 
-.info{
-	color: #DD0000;
+.info {
+    color: #DD0000;
 }
 
-a.wybrane:before{
-    content: "> ";
-}
-a.wybrane:after{
-    content: " <";
+
+
+html {
+    background-color: whitesmoke;
+    height: 100%;
+    font-family: Verdana, serif;
 }

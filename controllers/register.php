@@ -2,7 +2,7 @@
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 $email = $_POST['email'];
-$nick = $_POST['nick'];  
+$nick = $_POST['nick'];
 $hashedPassword = md5($_POST['password']);
 $isEverythinkOk = true;
     require_once "connection_config.php";
@@ -14,18 +14,22 @@ mysqli_report(MYSQLI_REPORT_STRICT);
             throw new Exception(mysqli_connect_errno());
         } else {
             $result = $connectionString->query("SELECT id FROM user WHERE Email='$email'");
-            if (!$result) throw new Exception($connectionString->error);
+         //   if (!$result) throw new Exception($connectionString->error);
             $howManyEmailsWeHave = $result->num_rows;
             if ($howManyEmailsWeHave > 0) {
                 $isEverythinkOk = false;
                 $_SESSION['e_email'] = "Istnieje już konto przypisane do tego adresu e-mail!";
+                echo '<script type="text/javascript">alert("Istnieje już konto przypisane do tego adresu e-mail!");</script>';
+
             }
             $result = $connectionString->query("SELECT id FROM user WHERE Nick='$nick'");
-            if (!$result) throw new Exception($connectionString->error);
+         //   if (!$result) throw new Exception($connectionString->error);
             $howManyNickWeHave = $result->num_rows;
             if ($howManyNickWeHave > 0) {
                 $isEverythinkOk = false;
                 $_SESSION['e_nick'] = "Istnieje już konto o takim nicku! Wybierz inny.";
+                echo '<script type="text/javascript">alert("Istnieje już konto o takim nicku! Wybierz inny.");</script>';
+
             }
             if ($isEverythinkOk == true) {
                 if ($connectionString->query("INSERT INTO user (Nick, Password, Email) VALUES ('$nick', '$hashedPassword', '$email')")) {

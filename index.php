@@ -6,7 +6,7 @@ include('include/PHPTAL.php');
 switch ($page) {
 
     case 'glowna':
-        $template = new PHPTAL("views/widok_glowna.html");
+        $template = new PHPTAL("views/login.html");
         break;
     case 'login':
         include 'controllers/login.php';
@@ -21,10 +21,7 @@ switch ($page) {
         $template = new PHPTAL("views/add_picture.html");
         break;
     case 'picture_list':
-        //include 'controllers/pictures.php';
-     //   $template = new PHPTAL("views/picture_list.php");
         header('Location: views/picture_list.php');
-        //  $template-> images = new pictures_list();
         break;
     default:
 

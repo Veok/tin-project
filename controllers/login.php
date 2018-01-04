@@ -18,14 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['userId'] = $userId;
         header('Location: index.php?page=addPicture');
 
-//        echo '<script type="text/javascript">
-//           window.location = "views/add_picture.html"
-//      </script>';
     } else {
         $_SESSION['logged'] = false;
         echo '<script type="text/javascript">
         alert("Podano bledne dane!");
        </script>';
+
     }
 }
 ?>

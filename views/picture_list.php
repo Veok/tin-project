@@ -7,13 +7,11 @@
     <link rel="stylesheet" href="../style.css" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<div id="strona">
+<div id="container">
 
     <div id="naglowek">
-        <h2><a href="index.php?page=glowna">Nagłówek</a></h2>
     </div>
 
-    <div id="kolumnaLewa">
         <div id="menuPoziome">
             <ul class="ukladPoziomy">
             <li><a href="../index.php?page=addPicture">Dodaj zdjęcia</a></li>
@@ -22,7 +20,6 @@
             </ul>
         </div>
 
-    </div>
 
     <div id="tresc" tal:condition="exists: tresc" tal:content="tresc">
         <?php
@@ -67,11 +64,13 @@
             }
         }
         ?>
-    </div>
-
-    <div id="stopka">
 
     </div>
 
-</html>
+
+    <div id="stopka" >
+        By @Paweł Lelental
+
+    </div>
 </div>
+</html>
