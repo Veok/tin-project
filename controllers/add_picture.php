@@ -8,7 +8,7 @@
 session_start();
 extract($_POST);
 $error = array();
-$extension = array("jpeg", "jpg", "png", "gif");
+$extension = array('jpeg', 'jpg', 'png', 'gif');
 $userId = $_SESSION['userId'];
 require_once "../connection_config.php";
 $images = $_FILES["files"]["tmp_name"];
@@ -18,18 +18,22 @@ foreach ($images as $index => $image) {
     if ($connectionString->connect_errno != 0) {
         throw new Exception(mysqli_connect_errno());
     } else {
-        $date = date('Y-m-d H:i:s');
-        $image2 = addslashes(file_get_contents($_FILES['files']['tmp_name'][$count]));
-        $count += 1;
-        $sqlString = "INSERT INTO picture (Name,AddedDate,Image_Data,User_Id) VALUES ('name','$date','$image2','$userId')";
-        if ($connectionString->query($sqlString)) {
-            $_SESSION['udaneDodaniePlikow'] = true;
-            header('Location: ../index.php?page=picture_list');
-        } else {
-            echo $sqlString;
-            throw new Exception($connectionString->error);
+        $extInfo = pathinfo($_FILES['files']['name'][$count], PATHINFO_EXTENSION);
+        if (in_array($extInfo, $extension)) {
+            $date = date('Y-m-d H:i:s');
+            $image2 = addslashes(file_get_contents($_FILES['files']['tmp_name'][$count]));
+            $count += 1;
+            $sqlString = "INSERT INTO picture (Name,AddedDate,Image_Data,User_Id) VALUES ('name','$date','$image2','$userId')";
+            if ($connectionString->query($sqlString)) {
+                $_SESSION['udaneDodaniePlikow'] = true;
+                header('Location: ../index.php?page=picture_list');
+            } else {
+                echo $sqlString;
+                throw new Exception($connectionString->error);
+            }
         }
         $connectionString->close();
     }
 }
+header('Location: ../index.php?page=picture_list');
 ?>
